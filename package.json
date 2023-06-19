@@ -15,9 +15,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/react-query": "^1.2.9",
+    "axios": "1.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-query": "^3.39.3"
+    "react-query": "3.39.3",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "@types/react": "18.0.37",
