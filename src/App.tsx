@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Countries from './components/Countries';
+import Countries from './components/country/Countries';
 
 const queryClient = new QueryClient({});
 
