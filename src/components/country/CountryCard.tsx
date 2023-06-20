@@ -1,6 +1,6 @@
 import InfoField from './InfoField';
 
-interface Props {
+interface CountryCardProps {
   name: string;
   capital: string[];
   region: string;
@@ -14,9 +14,9 @@ const CountryCard = ({
   region = '',
   population = '',
   flagSrc = '',
-}: Props) => {
+}: CountryCardProps) => {
   return (
-    <div className="bg-white dark:bg-blue-700 shadow-md rounded md:h-80 overflow-hidden transition-colors">
+    <div className="bg-white shadow-md rounded md:h-96 overflow-hidden transition-colors">
       <div className="w-full">
         <img
           src={flagSrc}
@@ -29,11 +29,9 @@ const CountryCard = ({
           {name}
         </h2>
         <div className="md:text-sm space-y-1">
-          <div className="space-y-1">
-            <InfoField fieldName="Population:" fieldValue={population} />
-            <InfoField fieldName="Region:" fieldValue={region} />
-            <InfoField fieldName="Capital:" fieldValue={capital.join(', ')} />
-          </div>
+          <InfoField fieldName="Population:" fieldValue={population} />
+          <InfoField fieldName="Region:" fieldValue={region} />
+          <InfoField fieldName="Capital:" fieldValue={capital.join(', ')} />
         </div>
       </div>
     </div>

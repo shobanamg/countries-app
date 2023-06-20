@@ -15,8 +15,7 @@ const Countries: React.FC = () => {
   }
 
   return (
-    <div className="py-2 px-5">
-      <h1>Countries List</h1>
+    <div className="py-16 px-5">
       <ul className="flex flex-wrap md:-mx-11 md:space-x-12 2xl:space-x-11">
         {!!data &&
           data.map((country: Country, i) => (
