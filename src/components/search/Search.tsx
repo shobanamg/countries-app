@@ -1,13 +1,5 @@
-import debounce from 'lodash.debounce';
 import { FC } from 'react';
 import { useCountryContext } from '../../context/CountryContext';
-
-const debouncedHandle = debounce(
-  (callback: (value: string) => void, value: string) => {
-    callback(value);
-  },
-  1000
-);
 
 const Search: FC = () => {
   const { handleSearch, searchQuery } = useCountryContext();
@@ -25,9 +17,7 @@ const Search: FC = () => {
           "bg-white"
         `}
         value={searchQuery}
-        onChange={(event) => {
-          debouncedHandle(handleSearch, event.target.value);
-        }}
+        onChange={(event) => handleSearch(event.target.value)}
       />
     </div>
   );

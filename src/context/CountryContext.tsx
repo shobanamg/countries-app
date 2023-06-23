@@ -1,6 +1,7 @@
 import {
   createContext,
   FC,
+  ReactNode,
   useContext,
   useEffect,
   useMemo,
@@ -8,6 +9,7 @@ import {
 } from 'react';
 import { Country } from '../types/country';
 import { useAllCountries, useCountryByName } from '../api';
+import useDebounce from '../hooks/useDebounce';
 
 interface CountryContextValue {
   countriesData: Country[] | undefined;
@@ -15,15 +17,13 @@ interface CountryContextValue {
   isLoading: boolean;
   isError: boolean;
   error: unknown;
-  searchQuery: string | undefined;
+  searchQuery: string;
 }
 const CountryContext = createContext<CountryContextValue | undefined>(
   undefined
 );
 
-export const CountryProvider: FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [countriesData, setCountriesData] = useState<Country[]>([]);
   const allCountriesQuery = useAllCountries();
   const {
@@ -33,8 +33,9 @@ export const CountryProvider: FC<{ children: React.ReactNode }> = ({
     error: allCountriesError,
   } = allCountriesQuery;
 
-  const [searchQuery, setSearchQuery] = useState<undefined | string>(undefined);
-  const countryByNameQuery = useCountryByName(searchQuery);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const debouncedSearchQuery = useDebounce(searchQuery, 600);
+  const countryByNameQuery = useCountryByName(debouncedSearchQuery);
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
