@@ -12,7 +12,7 @@ const CountryCard: FC<CountryProps> = ({ country }) => {
 
   return (
     <Link
-      to={`/countries/${name.common}`}
+      to={`/countries-app/countries/${name.common}`}
       className="w-full h-48 md:h-40 overflow-hidden"
     >
       <div className="bg-white shadow-md rounded md:h-96 overflow-hidden transition-colors">
