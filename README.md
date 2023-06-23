@@ -1,4 +1,4 @@
-# Countires Application with rest countires api
+# Countries Application with rest countries api
 
 ## Table of contents
 
@@ -37,4 +37,4 @@ It is my first complete project using React Query, Typescript and Vite and Tailw
 ### Continued development
 
 I have to add tests. I will write tests for the necessary components.
-I will try to develop more projects using TypeScript and Tailwind going forward.
+I will develop more projects using TypeScript and Tailwind going forward.
