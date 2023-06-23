@@ -39,6 +39,7 @@ export const CountryProvider: React.FC = ({ children }) => {
   const {
     data: countryByNameData,
     isLoading: countryLoading,
+    isFetching: countryIsFetching,
     isError: countryIsError,
     error: countryError,
   } = countryByNameQuery;
@@ -55,7 +56,8 @@ export const CountryProvider: React.FC = ({ children }) => {
     }
   }, [countryByNameData]);
 
-  const isLoading = allCountriesLoading || countryLoading;
+  const isLoading =
+    allCountriesLoading || (countryIsFetching && countryLoading);
   const isError = allCountriesIsError || countryIsError;
   const error = allCountriesError || countryError;
 
