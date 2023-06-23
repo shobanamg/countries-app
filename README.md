@@ -1,6 +1,5 @@
 # Countires Application with rest countires api
 
-
 ## Table of contents
 
 - [Overview](#overview)
@@ -24,7 +23,8 @@ Users should be able to:
 - Click on a country to see more detailed information on a separate page
 
 ### Built with
-- [Vite](https://vitejs.dev/) 
+
+- [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -36,5 +36,5 @@ It is my first complete project using React Query, Typescript and Vite and Tailw
 
 ### Continued development
 
-I have to add tests. I will write tests for the necessary components. 
-I will try to develop more projects using TypeScript and Tailwind going forward. 
+I have to add tests. I will write tests for the necessary components.
+I will try to develop more projects using TypeScript and Tailwind going forward.

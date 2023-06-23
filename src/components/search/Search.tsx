@@ -1,4 +1,5 @@
 import debounce from 'lodash.debounce';
+import { FC } from 'react';
 import { useCountryContext } from '../../context/CountryContext';
 
 const debouncedHandle = debounce(
@@ -8,7 +9,7 @@ const debouncedHandle = debounce(
   1000
 );
 
-const Search: React.FC = () => {
+const Search: FC = () => {
   const { handleSearch, searchQuery } = useCountryContext();
 
   return (

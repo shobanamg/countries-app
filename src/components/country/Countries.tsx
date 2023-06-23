@@ -1,11 +1,12 @@
-import React from 'react';
+import { FC } from 'react';
+import { AxiosError } from 'axios';
 import { Country } from '../../types/country';
 import CountryCard from './CountryCard';
 import { useCountryContext } from '../../context/CountryContext';
 import Loader from '../loader/Loader';
 import ErrorMessage from '../error/ErrorMessage';
 
-const Countries: React.FC = () => {
+const Countries: FC = () => {
   const { countriesData, isLoading, isError, error } = useCountryContext();
 
   if (isLoading) {
@@ -13,7 +14,7 @@ const Countries: React.FC = () => {
   }
 
   if (isError) {
-    return <ErrorMessage error={error} />;
+    return <ErrorMessage error={error as AxiosError} />;
   }
 
   return (

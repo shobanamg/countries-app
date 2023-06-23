@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import React from 'react';
+import { AxiosError } from 'axios';
 import { useCountryByNameDetail } from '../../../api';
 import Loader from '../../loader/Loader';
 import InfoField from '../InfoField';
@@ -21,7 +21,7 @@ const CountryDetail = () => {
   }
 
   if (isError) {
-    return <ErrorMessage error={error} />;
+    return <ErrorMessage error={error as AxiosError} />;
   }
 
   const {

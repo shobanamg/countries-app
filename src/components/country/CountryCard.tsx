@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
+import { FC } from 'react';
 import InfoField from './InfoField';
 import { Country } from '../../types/country';
+import formatPopulation from '../../utils/formatPopulation';
 
-const CountryCard = ({ country }: Country) => {
+interface CountryProps {
+  country: Country;
+}
+const CountryCard: FC<CountryProps> = ({ country }) => {
   const { name, flags, population, capital, region } = country;
 
   return (
@@ -23,12 +28,14 @@ const CountryCard = ({ country }: Country) => {
             {name.common}
           </h2>
           <div className="md:text-sm space-y-1">
-            <InfoField fieldName="Population:" fieldValue={population} />
-            <InfoField fieldName="Region:" fieldValue={region} />
             <InfoField
-              fieldName="Capital:"
-              fieldValue={!!capital && capital.join(', ')}
+              fieldName="Population:"
+              fieldValue={formatPopulation(population)}
             />
+            <InfoField fieldName="Region:" fieldValue={region} />
+            {!!capital && (
+              <InfoField fieldName="Capital:" fieldValue={capital.join(', ')} />
+            )}
           </div>
         </div>
       </div>

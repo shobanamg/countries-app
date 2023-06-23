@@ -1,5 +1,6 @@
-import React, {
+import {
   createContext,
+  FC,
   useContext,
   useEffect,
   useMemo,
@@ -14,12 +15,15 @@ interface CountryContextValue {
   isLoading: boolean;
   isError: boolean;
   error: unknown;
+  searchQuery: string | undefined;
 }
 const CountryContext = createContext<CountryContextValue | undefined>(
   undefined
 );
 
-export const CountryProvider: React.FC = ({ children }) => {
+export const CountryProvider: FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [countriesData, setCountriesData] = useState<Country[]>([]);
   const allCountriesQuery = useAllCountries();
   const {
@@ -29,10 +33,10 @@ export const CountryProvider: React.FC = ({ children }) => {
     error: allCountriesError,
   } = allCountriesQuery;
 
-  const [searchQuery, setSearchQuery] = useState(undefined);
+  const [searchQuery, setSearchQuery] = useState<undefined | string>(undefined);
   const countryByNameQuery = useCountryByName(searchQuery);
 
-  const handleSearch = (value) => {
+  const handleSearch = (value: string) => {
     setSearchQuery(value);
   };
 
@@ -68,8 +72,9 @@ export const CountryProvider: React.FC = ({ children }) => {
       isLoading,
       isError,
       error,
+      searchQuery,
     }),
-    [countriesData, isLoading, isError, error]
+    [countriesData, isLoading, isError, error, searchQuery]
   );
   return (
     <CountryContext.Provider value={contextValue}>

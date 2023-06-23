@@ -19,10 +19,10 @@ export const useAllCountries = () => {
   return useQuery<Country[]>(['countries'], fetchAllCountries);
 };
 
-export const useCountryByName = (name: string) => {
+export const useCountryByName = (name: string | undefined) => {
   return useQuery<Country[]>({
     queryKey: ['countriesByName', name],
-    queryFn: () => fetchCountryByName(name),
+    queryFn: () => fetchCountryByName(name as string),
     enabled: !!name,
   });
 };
