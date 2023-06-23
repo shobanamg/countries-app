@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Layout from './components/layout/Layout';
 import CountryDetail from './components/country/detail/CountryDetail';
 import Home from './components/home/Home';
+import PageNotFound from './pageNotFound/PageNotFound';
 
 const queryClient = new QueryClient({});
 
@@ -11,17 +12,21 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: '/',
+        path: '/countries-app/',
         element: <Home />,
       },
       {
-        path: '/countries',
+        path: '/countries-app/countries',
         element: <Home />,
       },
 
       {
-        path: '/countries/:countryName',
+        path: '/countries-app/countries/:countryName',
         element: <CountryDetail />,
+      },
+      {
+        path: '*',
+        element: <PageNotFound />,
       },
     ],
   },
