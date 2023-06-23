@@ -102,7 +102,7 @@ const CountryDetail = () => {
                   return (
                     <li key={border} className={`${i === 0 && 'mt-2 md:ml-2'}`}>
                       <Link
-                        to={`/countries/${getBorder(border)}`}
+                        to={`/countries-app/countries/${getBorder(border)}`}
                         className="bg-white  shadow-md flex items-center  h-10 md:h-8 px-6 md:px-8"
                       >
                         {getBorder(border)}
