@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Layout from './components/layout/Layout';
 import CountryDetail from './components/country/detail/CountryDetail';
 import Home from './components/home/Home';
-import PageNotFound from './pageNotFound/PageNotFound';
+import PageNotFound from './components/pageNotFound/PageNotFound';
 
 const queryClient = new QueryClient({});
 
