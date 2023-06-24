@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { AxiosError } from 'axios';
+import { FC } from 'react';
 import { useCountryByNameDetail } from '../../../api';
 import Loader from '../../loader/Loader';
 import InfoField from '../InfoField';
@@ -10,7 +11,7 @@ import getBorder from '../../../utils/getBorder';
 import BackButton from '../../button/BackButton';
 import ErrorMessage from '../../error/ErrorMessage';
 
-const CountryDetail = () => {
+const CountryDetail: FC = () => {
   const { countryName } = useParams();
   const { data, isLoading, isError, error } = useCountryByNameDetail(
     countryName as string

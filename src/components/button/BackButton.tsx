@@ -1,7 +1,8 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 import { Link } from 'react-router-dom';
+import { FC } from 'react';
 
-const BackButton = () => {
+const BackButton: FC = () => {
   return (
     <Link
       to="/countries-app"
