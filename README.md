@@ -10,7 +10,7 @@
 
 ## Overview
 
-A countries application, where you can search for the countries and see more details about it.
+A Countries Application, where you can search for the countries and see more details about it.
 
 ### The challenge
 
